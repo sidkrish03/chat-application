@@ -40,13 +40,43 @@ const removeUser = (id) => {
     }
 }
 
+const getUser = (id) => {
+    return users.find((user) => user.id === id)
+}
+
+const getUsersInRoom = (room) => {
+    room = room.trim().toLowerCase()
+    return users.filter((user) => user.room === room)
+}
+
+module.exports = {
+    addUser,
+    removeUser,
+    getUser,
+    getUsersInRoom
+}
+
+// Testing
 addUser({
     id: 22,
     username: 'Sid ',
     room: ' Cali'
 })
 
-console.log(users)
+addUser({
+    id: 23,
+    username: 'Mike ',
+    room: ' Cali'
+})
+
+addUser({
+    id: 24,
+    username: 'Drew ',
+    room: ' Central City'
+})
+
+
+// console.log(users)
 
 // const res = addUser({
 //     id: 33,
@@ -56,7 +86,13 @@ console.log(users)
 
 // console.log(res)
 
-const removedUser = removeUser(22)
+// const removedUser = removeUser(22)
 
-console.log(removedUser)
-console.log(users)
+// console.log(removedUser)
+// console.log(users)
+
+// const user = getUser(422)
+// console.log(user)
+
+// const userList = getUsersInRoom('Cali')
+// console.log(userList)
