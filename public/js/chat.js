@@ -24,9 +24,6 @@ const autoScroll = () => {
     const newMessageMargin = parseInt(newMessageStyles.marginBottom)
     const newMessageHeight = $newMessage.offsetHeight + newMessageMargin
 
-    // console.log(newMessageStyles)
-    // console.log(newMessageMargin)
-
     // Visible Height
     const visibleHeight = $messages.offsetHeight
 
@@ -84,7 +81,7 @@ $messageForm.addEventListener('submit', (event) => {
 
     socket.emit('sendMessage', message, (error) => {
         // Enable the form
-        $messageFormButton.removeAttribute('disbaled', 'disabled')
+        $messageFormButton.removeAttribute('disbaled')
         $messageFormInput.value = ''
         $messageFormInput.focus()
 
@@ -110,7 +107,7 @@ $sendLocationButton.addEventListener('click', () => {
             longitude: position.coords.longitude
         }, () => {
             // Enable the button
-            $sendLocationButton.removeAttribute('disabled', 'disabled')
+            $sendLocationButton.removeAttribute('disabled')
             console.log('Location shared!')
         })
     })
